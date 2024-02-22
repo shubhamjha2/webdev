@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarm Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #alarm-container {
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+        }
+
+        .alarm-heading {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .alarm-timing {
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div id="alarm-container">
+        <h1 class="alarm-heading">ALARM</h1>
+        <p class="alarm-timing"></p>
+    </div>
+</body>
+<script>
+    let clock=document.querySelector(".alarm-timing");
+    setInterval(()=>{
+        let date=new Date();
+        clock.innerHTML=date.toLocaleTimeString();
+    },1000);
+
+</script>
+</html>

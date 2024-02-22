@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body {
+            background-color: #212121;
+            color: #fff;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #wrapper {
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        .form {
+            margin-top: 20px;
+        }
+
+        .guessField {
+            width: 70%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .guessSubmit {
+            width: 30%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .resultParas {
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            /* Adjust styles for smaller screens if needed */
+            .guessField, .guessSubmit {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>Number guessing game</h1>
+        <p>Try and guess a random number between 1 and 100.</p>
+        <p>You have 10 attempts to guess the right number.</p>
+        <form class="form">
+            <label2 for="guessField" id="guess">Guess a number</label>
+            <input type="text" id="guessField" class="guessField">
+            <input type="submit" id="subt" value="Submit guess" class="guessSubmit">
+        </form>
+
+        <div class="resultParas">
+            <p >Previous Guesses: <span class="guesses"></span></p>
+            <p >Guesses Remaining: <span class="lastResult">10</span></p>
+            <p class="lowOrHi"></p>
+        </div>
+    </div>
+    
+</body>
+<script>
+    let randomNumber = parseInt(Math.random() * 100 + 1);
+    console.log(randomNumber);
+    let attempt = 10;
+    let arrayofnumers=[];
+    const gussremain = document.querySelector(".lastResult");
+    const submitButton = document.querySelector("#subt");
+    const message = document.querySelector(".lowOrHi");
+    const guessInput = document.querySelector("#guessField");
+    const Previous_guess = document.querySelector(".guesses");
+
+    submitButton.addEventListener('click', (e) => {
+        
+        e.preventDefault();
+        // console.log(guessInput.value);
+        if(attempt>0){
+            validno(parseInt(guessInput.value));
+        }
+        else{
+            message.innerHTML="game is over"
+        }
+        
+    });
+
+    function validno(x) {
+        attempt--;
+        console.log(attempt);
+        if (isNaN(x)) {
+          alert('Please enter a valid number');
+        } else if (x < 1) {
+          alert('Please enter a number more than 1');
+        } else if (x > 100) {
+          alert('Please enter a number less than 100');
+        }
+        else{
+            arrayofnumers.push(guessInput.value);
+            gussremain.innerHTML=attempt;
+            // let ar="";
+            Previous_guess.innerHTML= arrayofnumers.join(",");
+            if(randomNumber==x){
+                message.innerHTML="you guessed a correct number ,you won!!";
+                setTimeout(function () {
+                    location.reload(); // Refresh the page after a short delay
+                }, 3000);
+            }else{
+                if(x>randomNumber){
+                    message.innerHTML="greate than random number"
+                }
+                else{
+                    message.innerHTML="less than random number"
+                }
+            }
+        }
+    }
+</script>
+</html>

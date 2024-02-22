@@ -1,0 +1,23 @@
+h1{
+    text-align: center;
+    color: aqua;
+    
+}
+fieldset{
+    background-color: yellow;
+  width: 400px;
+  height: 60px;
+}
+.harami{
+    text-align: justify;
+    color: orange;
+
+}
+#male{
+color: green;
+text-decoration:underline;
+}
+.box{
+    border-block-color: red;
+writing-mode: horizontal-tb;
+}

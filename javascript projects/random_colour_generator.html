@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Colour Generator</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .random-color-generator {
+        margin-top: 20px;
+      }
+
+      .button-container {
+        display: flex;
+        margin-top: 10px;
+      }
+
+      .start,
+      .stop {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin: 0 10px;
+        cursor: pointer;
+      }
+
+      .start {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      .stop {
+        background-color: #f44336;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Random Colour Generator</h1>
+    <p class="random-color-generator">
+      Click "Start" to generate random colors or "Stop" to pause.
+    </p>
+    <div class="button-container">
+      <button class="start">Start</button>
+      <button class="stop">Stop</button>
+    </div>
+  </body>
+  <script>
+    let start = document.querySelector(".start");
+    let stop = document.querySelector(".stop");
+    let Colour = () => {
+      let c = "#";
+      let hex = "0123456789ABCDEF";
+      for (let i = 0; i < 6; i++) {
+        c += hex[parseInt((Math.random() * 100) % 16)];
+      }
+      console.log(c);
+      return c;
+    };
+    let xxx;
+    start.addEventListener("click", () => {
+      if (!xxx) {
+        xxx = setInterval(() => {
+          console.log("hiii");
+          document.body.style.background = Colour();
+        }, 1000);
+      }
+    });
+    stop.addEventListener("click", () => {
+      clearTimeout(xxx);
+    });
+  </script>
+</html>

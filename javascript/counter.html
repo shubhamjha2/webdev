@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        text-align: -webkit-center;
+      }
+      main#container {
+        display: flex;
+        background: #fefffe;
+        width: 40%;
+        font-size: 100px;
+        height: 19%;
+        margin-top: 100px;
+        justify-content: space-between;
+      }
+      #red {
+        display: block;
+        background-color: orange;
+        height: 150px;
+        cursor: pointer;
+        width: 300px;
+      }
+      #green {
+        display: block;
+        background-color: green;
+        height: 150px;
+        cursor: pointer;
+        width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>javascript learning</h1>
+    <main id="container">
+      <div onclick="red()" id="red">-</div>
+      <div id="count"></div>
+      <div onclick="add()" id="green">+</div>
+    </main>
+    <button style="margin-top: 100px">Change color</button>
+  </body>
+  <script>
+    let count = 0;
+    document.getElementById("count").innerHTML = count;
+    function red() {
+      count -= 1;
+      if (count > 0) {
+        count -= 1;
+        document.getElementById("count").innerHTML = count;
+      }
+      // document.getElementById("count").innerHTML =  count;
+    }
+    function add() {
+      count += 1;
+      document.getElementById("count").innerHTML = count;
+    }
+    //bg colour changer
+    const btn = document.querySelector("button");
+
+    function random(number) {
+      return Math.floor(Math.random() * (number + 1));
+    }
+
+    btn.addEventListener("click", () => {
+      const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+      document.body.style.backgroundColor = rndCol;
+    });
+    // button background change
+    let btnn = document.querySelector("button");
+
+    function random(number) {
+      return Math.floor(Math.random() * (number + 1));
+    }
+
+    function bgChange(e) {
+      const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+      e.target.style.backgroundColor = rndCol;
+      // e.target.innerHTML = "jool";
+
+      console.log(e);
+    }
+
+    btnn.addEventListener("click", bgChange);
+  </script>
+</html>

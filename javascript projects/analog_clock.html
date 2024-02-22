@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog Clock</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #clock {
+            width: 500px;
+            height: 500px;
+            border: 5px solid #333;
+            border-radius: 50%;
+            position: relative;
+            transform: rotate(90deg);
+            font-family: Arial, sans-serif;
+        }
+
+        .hand {
+            position: absolute;
+            height: 50%;
+            width: 2px;
+            background-color: #333;
+            top: 50%;
+            transform-origin: 50% 100%;
+            transform: rotate(90deg); /* Initial position: pointing to 12 o'clock */
+        }
+
+        .hour {
+            background-color: #333;
+            height: 6px;
+            width: 50%;
+            position: absolute;
+            top: 50%;
+            left: 0%;
+            transform-origin: 100% 50%;
+            transform: rotate(180deg);
+        }
+
+        .minute {
+            background-color: #333;
+            height: 4px;
+            width: 70%;
+            position: absolute;
+            top: 50%;
+            left: -20%;
+            transform-origin: 100% 50%;
+            transform: rotate(100deg);
+        }
+
+        .second {
+            background-color: red;
+            height: 2px;
+            width: 80%;
+            position: absolute;
+            top: 50%;
+            left: -30%;
+            transform-origin: 100% 50%;
+            transform: rotate(0deg);
+        }
+
+        .hour-number {
+            position: absolute;
+            font-size: 16px;
+            color: #333;
+            transform-origin: 50% 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="clock">
+        <div class="hand hour"></div>
+        <div class="hand minute"></div>
+        <div class="hand second"></div>
+
+        <!-- Hour Numbers -->
+        <div class="hour-number" style="top: 10px;transform: rotate(270deg); left: 50%;">3</div>
+        <div class="hour-number" style="top: 50%;transform: rotate(270deg); left: 90%;">6</div>
+        <div class="hour-number" style="bottom: 10px;transform: rotate(270deg); left: 50%;">9</div>
+        <div class="hour-number" style="top: 50%;transform: rotate(270deg); left: 10%;">12</div>
+    </div>
+
+    <script>
+    let hr = document.querySelector(".hour");
+    let min = document.querySelector(".minute");
+    let se = document.querySelector(".second");
+    setInterval(() => {
+        let d = new Date();
+        let h = d.getHours();
+        let m = d.getMinutes();
+        let s = d.getSeconds();
+
+        // Convert 24-hour time to 12-hour time
+        h = (h % 12) || 12;
+
+        let sec_rotation = 6 * s;
+        let min_rotation = 6 * m;
+        let hour_rotation = 30 * h + 0.5 * m; // Each hour is 30 degrees, and 0.5 degrees for each minute
+
+        se.style.transform = `rotate(${sec_rotation}deg)`;
+        min.style.transform = `rotate(${min_rotation}deg)`;
+        hr.style.transform = `rotate(${hour_rotation}deg)`;
+    }, 1000);
+</script>
+
+</body>
+</html>

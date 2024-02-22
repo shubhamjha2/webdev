@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centered Boxes</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      border: 2px solid black;
+      display: inline-block;
+    }
+
+    #box1 {
+      background-color: red;
+    }
+
+    #box2 {
+      background-color: blue;
+    }
+
+    #box3 {
+      background-color: green;
+    }
+
+    #box4 {
+      background-color: yellow;
+    }
+
+    #box5 {
+      background-color: purple;
+    }
+  </style>
+</head>
+<body>
+  <div id="box1" class="box"></div>
+  <div id="box2" class="box"></div>
+  <div id="box3" class="box"></div>
+  <div id="box4" class="box"></div>
+  <div id="box5" class="box"></div>
+</body>
+<script>
+    const boxes=document.querySelectorAll(".box");
+    const bodsy=document.querySelector("body");
+    boxes.forEach(box => {
+      box.addEventListener('click',e=>{
+        // console.log(e);
+        // console.log("e");
+        if(e.target.id ==="box1"){
+          bodsy.style.backgroundColor= "red";
+        }
+        if(e.target.id ==="box2"){
+          bodsy.style.backgroundColor= "blue";
+        }
+        if(e.target.id ==="box3"){
+          bodsy.style.backgroundColor= "green";
+        }
+        if(e.target.id ==="box4"){
+          bodsy.style.backgroundColor= "yellow";
+        }
+        if(e.target.id ==="box5"){
+          bodsy.style.backgroundColor= "purple";
+        }
+        
+      });
+    });
+</script>
+</html>

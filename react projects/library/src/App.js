@@ -12,7 +12,7 @@ function App() {
       {/* <Bgchanger /> */}
       {/* <Dropdowncards /> */}
       {/* <Passwordgen /> */}
-      {Currenccy_changer}
+      <Currenccy_changer />
     </>
   );
 }

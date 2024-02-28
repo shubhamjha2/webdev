@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Apply a box-sizing border-box to all elements */
+
+  /* Apply a margin and padding reset to the body */
+  body, h1, h2, h3, h4, p, ul, ol, li, figure, figcaption, blockquote, dl, dd {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Set base font size and family */
+  html {
+    font-size: 16px; /* Adjust as needed */
+    font-family: Arial, sans-serif; /* Adjust as needed */
+  }
+  
+  /* Apply a full viewport height to the body */
+  body {
+    height: 100vh;
+  }
+  
+  /* Center align text in the body */
+  body {
+  }
+  
+  /* Add additional styles as needed */
+  div#root {
+    height: 100%;
+}

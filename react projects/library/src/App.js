@@ -1,5 +1,7 @@
 import React from "react";
-import Routingprojactmain from "./project/routerproject/Routingprojactmain";
+// import Routingprojactmain from "./project/routerproject/Routingprojactmain";
+// import Contextexample from "./project/context-api-lesson/basicexample/Contextexample";
+// import Theam_changer from "./project/context-api-lesson/Theam_change/Theam_changer";
 // import Counter from "./project/counter++/counter";
 // import Bgchanger from "./project/bg changer/bgchanger"
 // import Dropdowncards from "./project/dropdowncards/departmrnt"
@@ -14,7 +16,9 @@ function App() {
       {/* <Dropdowncards /> */}
       {/* <Passwordgen /> */}
       {/* <Currenccy_changer /> */}
-      <Routingprojactmain/>
+      {/* <Routingprojactmain/> */}
+      {/* <Contextexample/> */}
+      {/* <Theam_changer/> */}
     </>
   );
 }
